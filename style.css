@@ -1,0 +1,665 @@
+*
+{
+      box-sizing: border-box;
+}
+html, body
+{
+      overflow-x: hidden;
+      height: 100%;
+}
+body
+{
+      font-family: arial,sans-serif;
+      background: #fff;
+      padding: 0;
+      margin: 0;
+}
+.header
+{
+      background: #f5f5fa;
+      width: 100%;
+      height: 60px;
+      position: fixed;
+      z-index: 10;
+      color: black;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+}
+.Navbar
+{
+      width: 100%;
+      margin: 0px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.Left_Section
+{
+      display: flex;
+      gap: 10px;
+      font-weight: 600;
+}
+.home_btn
+{
+      padding: 5px;
+      border: 1px solid#a7b5a5;
+      gap: 1px;
+      border-radius: 3px;
+      cursor: pointer;
+}
+.Right_Section
+{
+      display: flex;
+      gap: 9px;
+      align-items: center;
+}
+.Right_Section .admin i
+{
+      color: red !important;
+}
+.setting
+{
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      border: 1px solid#a7b5a5;
+      gap: 1px;
+      border-radius: 3px;
+      cursor: pointer;
+}
+.main
+{
+      height: 100%;
+      margin-top: 60px;
+      padding: 10px 50px;
+      z-index: 9;
+}
+#sidebarMenu
+{
+      width: 100px;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      margin-top: 60px;
+      background: #f5f5fa;
+      transform: translateX(-250px);
+      transition: transform 250ms ease-in-out;
+}
+.menu
+{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+}
+.menu li
+{
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.30);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: #000;
+      align-items: center;
+      padding-top: 40px;
+      font-weight: 600;
+      font-size: 14px;
+}
+.menu li a
+{
+      font-family:Georgia;
+      /* text-shadow: 1px 1px 1px black; */
+      color: #000;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase;
+}
+.menu li i
+{
+      font-size: x-large !important;
+}
+
+/* For Sidebar styling */
+
+.sidebaricontoggle
+{
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      z-index: 20;
+      top: 22px;
+      left: 15px;
+      cursor: pointer;
+}
+#opensidebarmenu:checked ~ #sidebarMenu
+{
+      transform: translateX(0px);
+}
+.spinner
+{
+      height: 3px;
+      background: #000;
+      transition: all 0.3s;
+}
+.spinner.top,
+.spinner.middle,
+.spinner.bottom
+{
+      margin-top: 3px;
+}
+#opensidebarmenu:checked ~ .sidebaricontoggle > .spinner.middle
+{
+      opacity: 0;
+}
+#opensidebarmenu:checked ~ .sidebaricontoggle > .spinner.top
+{
+      border:1px solid black;
+      transform:rotate(124deg);
+      margin-top:9px;
+}
+#opensidebarmenu:checked ~ .sidebaricontoggle > .spinner.bottom
+{
+      border:1px solid black;
+      transform:rotate(-124deg);
+      margin-top:-9px;
+}
+
+
+/* Content Section Css Start */
+.tab-wrap
+{
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      /* margin:10px auto; */
+      overflow: visible;
+}
+
+.tab-wrap input[type="radio"]
+{
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+}
+
+.tab-wrap li
+{
+      float: left;
+      display: block;
+}
+
+.tab-wrap label
+{
+      font-weight: 600;
+      background: white;
+      display: inline-block;
+      cursor: pointer;
+      padding:10px 20px;
+      background-color: #f0f0f0;
+
+}
+
+.tab-wrap label:hover
+{
+      color: #b9c3c3;
+}
+
+.tab-wrap .tab-content
+{
+      width: 100%;
+      background: #fff;
+      padding: 20px;
+      border-radius:0 3px 3px 3px;
+      position: absolute;
+      left: 0;
+      top: 45px;
+      display: none;
+      
+}
+.tab-content .Pagination_Section
+{
+      display: flex;
+      justify-content: end;
+      gap: 15px;
+      margin-bottom: 40px;
+}
+.Content
+{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+}
+.tab-wrap .tab-content .Pagination_Section .Search input
+{
+      border: 1px solid #eee;
+      padding: 5px 15px;
+      border-radius: 4px;
+      height: 38px;
+}
+.tab-wrap .tab-content .Pagination_Section .Print
+{
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 10px;
+      border: 1px solid #000;
+      background: #f0f0f0;
+      border-radius: 4px;
+      cursor: pointer;
+}
+.tab-wrap .tab-content .Pagination_Section .Search input:focus
+{
+      outline: none;
+}
+
+.tab-wrap [id^=tab]:checked + label
+{
+      border: 2px solid #b4d2f6;
+      background: #b9c3c3;
+      color: #000;
+}
+
+.tab-wrap [id^=tab]:checked ~ .tab-content
+{
+      display: block;
+      /* background:#a7b5a5; */
+      /* border: 1px solid black; */
+}
+
+.table 
+{
+      border-radius: 5px;
+      padding: 0 1px 15px 1px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.table table thead tr,.table table tbody tr
+{
+      border-radius: 15px;
+}
+.table table thead th,.table table tbody td
+{
+      border: 1px solid #dbdfe3;
+}
+.table table thead tr
+{
+      border-radius: 15px;
+}
+.Aspiration
+{
+      display: flex;
+}
+.summary_BOM .Title
+{
+      background-color: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 1px solid #a7b5a5;
+      font-weight: 600;
+      margin-bottom: 15px;
+}
+.summary_BOM .Category
+{
+      font-weight: 700;
+      margin-bottom: 30px;
+}
+.Aspiration
+{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+}
+.Aspiration div
+{
+      width: 100%;
+      display: flex;
+}
+.Aspiration select
+{
+      width: 50%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.Wo_Num 
+{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      margin-right: 35px;
+}
+.Wo_Num span
+{
+      font-weight: 400;
+}
+.Wo_Num select
+{
+      width: 35%;
+      height: 40px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.Aspiration p
+{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-left: 20px;
+}
+.Aspiration span
+{
+      background-color: green;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+}
+.Project_Main_Section .Desgin .Title
+{
+      background-color: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 1px solid #a7b5a5;
+      font-weight: 600;
+      margin-bottom: 15px;
+}
+.Desgin .Desgin_Content
+{
+      display: flex;
+      justify-content: space-between;
+}
+.Desgin .Desgin_Content .Employees
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.Desgin .Desgin_Content .Employees span
+{
+      font-weight: 400;
+}
+.Desgin .Desgin_Content .Employees p
+{
+      width: 200px;
+      height: 40px;
+      border: 1px solid #a7b5a5;
+      border-radius: 5px;
+      padding: 10px 15px;
+}
+.Desgin .Desgin_Content .role
+{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+}
+.Desgin .Desgin_Content .role div
+{
+      display: flex;
+      gap: 15px;
+}
+.Desgin .Desgin_Content .role div select
+{
+      width: 200px;
+      height: 52px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.Desgin .Desgin_Content .role div p
+{
+      display: flex;
+      gap: 10px;
+}
+.Desgin .Desgin_Content .role div span
+{
+      background-color: green;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+}
+
+.Desgin .Desgin_Content .start_date
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.Desgin .Desgin_Content .start_date input
+{
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #a7b5a5;
+      cursor: pointer;
+}
+.Desgin .Desgin_Content .end_date
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.Desgin .Desgin_Content .end_date input
+{
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #a7b5a5;
+      cursor: pointer;
+}
+.PPE .Title
+{
+      background-color: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 1px solid #a7b5a5;
+      font-weight: 600;
+      margin-bottom: 15px;
+}
+.PPE .Desgin_Content
+{
+      display: flex;
+      justify-content: space-between;
+}
+.PPE .Desgin_Content
+{
+      display: flex;
+      justify-content: space-between;
+}
+.PPE .Desgin_Content .Employees
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.PPE .Desgin_Content .Employees span
+{
+      font-weight: 400;
+}
+.PPE .Desgin_Content .Employees p
+{
+      width: 200px;
+      height: 50px;
+      border: 1px solid #a7b5a5;
+      border-radius: 5px;
+      padding: 10px 15px;
+}
+.PPE .Desgin_Content .role
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.PPE .Desgin_Content .role div
+{
+      display: flex;
+      gap: 10px;
+}
+.PPE .Desgin_Content .role div select
+{
+      width: 200px;
+      height: 52px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.PPE .Desgin_Content .role div p
+{
+      display: flex;
+      gap: 10px;
+}
+.PPE .Desgin_Content .role div span
+{
+      background-color: green;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+}
+
+.PPE .Desgin_Content .start_date
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.PPE .Desgin_Content .start_date input
+{
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #a7b5a5;
+      cursor: pointer;
+}
+.PPE .Desgin_Content .end_date
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.PPE .Desgin_Content .end_date input
+{
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #a7b5a5;
+      cursor: pointer;
+}
+
+/* Manage_Content */
+.Manage_Content .Title
+{
+      background-color: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 1px solid #a7b5a5;
+      font-weight: 600;
+      margin-bottom: 15px;
+}
+.Manage_Content
+{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.Manage_Content .User_access
+{
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+}
+
+.Manage_Content .User_access .Wo_Num 
+{
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+}
+.Manage_Content .User_access .Wo_Num .Wo_Num span
+{
+      font-weight: 400;
+}
+.Manage_Content .User_access .Wo_Num select
+{
+      width: 200px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.Manage_Content .User_access .Department
+{
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+      gap: 15px;
+}
+.Manage_Content .User_access .Department span
+{
+      font-weight: 400;
+}
+.Manage_Content .User_access .Department select
+{
+      width: 200px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.Manage_Content .User_access .Employee
+{
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+      gap: 15px;
+}
+.Manage_Content .User_access .Employee span
+{
+      font-weight: 400;
+}
+.Manage_Content .User_access .Employee select
+{
+      width: 200px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #b9c3c3;
+      cursor: pointer;
+}
+.table2
+{
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.table2 table th,.table2 table tbody td
+{
+      border: 0px solid #dbdfe3;
+}
+.table2 table tbody td input
+{
+      accent-color: red;
+}
+
+footer
+{
+      width: 100%;
+      height: 60px;
+      background-color: #b4d2f6;
+}
+/* Manage Content */
+/* Content Section Css End's */
